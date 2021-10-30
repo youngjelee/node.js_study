@@ -1,21 +1,28 @@
 "use strict";
 
 const id = document.querySelector("#id"),
+    name = document.querySelector("#name"),
     pwd  = document.querySelector("#pwd"),
-    loginBtn = document.querySelector("#button");
+    confirmPwd  = document.querySelector("#confirm-pwd"),
+    registerBtn = document.querySelector("#button");
 
     console.log("hello");
 
-    loginBtn.addEventListener('click',login);
+    registerBtn.addEventListener('click',register);
 
-    function login(){
+    function register(){
+        if(!id.value) return alert("아이디를 입력해주세요");
+        if(pwd !== confirmPwd) {
+            return alert("비밀번호를 확인해주세요");
+        }
       const req = {
           id : id.value,
-          pwd : pwd.value,
+          name : name.value,
+          pwd : pwd.value
       };
-    
+    console.log(req);
 
-    fetch("/login",{
+    fetch("/register",{
         method : "POST",
         headers :  {
             "Content-Type" : "application/json",
@@ -24,7 +31,7 @@ const id = document.querySelector("#id"),
     }).then((res) => res.json())
       .then((res) => {
           if(res.success) {
-              location.href="/login";
+              location.href="/";
           }else{
               alert(res.msg);
           }

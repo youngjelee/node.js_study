@@ -21,5 +21,9 @@ class User{
         }
         return  {success : false , msg: "존재하지 않는 아이디입니다."}
     }
+    
+    register() {
+        UserStorage.save(this.body);
+    }
 }
 module.exports = User;

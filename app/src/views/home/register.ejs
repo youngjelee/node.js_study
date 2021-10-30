@@ -7,7 +7,7 @@
     
 
     <link rel="stylesheet" href="./css/home/login.css" >
-    <script src="/js/home/login.js" defer></script>
+    <script src="/js/home/register.js" defer></script>
     <title>Login</title>
 </head>
 <body>
@@ -16,9 +16,12 @@
 
           <form class="login-form">
             <input id="id" type="text" placeholder="id"/>
-            <input id="pwd" type="password" placeholder="password"/>
-            <p id="button">login</p>
-            <p class="message">Not registered? <a href="/register">Create an account</a></p>
+            <input id="name" type="text" placeholder="name"/>
+            <input id="pwd" type="text" placeholder="pwd"/>
+            <input id="confirm-pwd" type="text" placeholder="confirmPwd"/>
+            <p id="button">회원가입</p>
+            <p class="message">Already registered? 
+                <a href="/register">Create an account</a></p>
           </form>
         </div>
       </div>

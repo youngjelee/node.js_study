@@ -24,9 +24,6 @@ class UserStorage {
         const usersKeys = Object.keys(users);  // =>[id,pwd,name]
         const userInfo = usersKeys.reduce((newUser,info) => {
 
-            console.log("1" ,newUser);
-            console.log("2" ,info);
-            console.log("3",idx);
             newUser[info] =users[info][idx];
             return newUser;
         }, {});
