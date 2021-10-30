@@ -7,7 +7,7 @@ class UserStorage {
         names:["영이","일이","삼이"]
     };
 
-    static getUers(...fields){
+    static getUsers(...fields){
         const users = this.#users;
         const newUsers = fields.reduce((newUsers,field) => {
             if(users.hasOwnProperty(field)){
@@ -16,6 +16,21 @@ class UserStorage {
             return newUsers;
         } , {});
         return newUsers; 
+    }
+
+    static getUserInfo(id){
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const usersKeys = Object.keys(users);  // =>[id,pwd,name]
+        const userInfo = usersKeys.reduce((newUser,info) => {
+
+            console.log("1" ,newUser);
+            console.log("2" ,info);
+            console.log("3",idx);
+            newUser[info] =users[info][idx];
+            return newUser;
+        }, {});
+        return userInfo;
     }
 }
 
