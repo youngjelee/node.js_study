@@ -12,7 +12,7 @@ const id = document.querySelector("#id"),
 
     function register(){
         if(!id.value) return alert("아이디를 입력해주세요");
-        if(pwd !== confirmPwd) {
+        if(pwd.value !== confirmPwd.value) {
             return alert("비밀번호를 확인해주세요");
         }
       const req = {
@@ -30,11 +30,13 @@ const id = document.querySelector("#id"),
         body : JSON.stringify(req),
     }).then((res) => res.json())
       .then((res) => {
+          console.log("res",res);
           if(res.success) {
-              console.log("123");
-              location.href="/abc";
+              alert(res.msg);
+              location.href="/login";
           }else{
               alert(res.msg);
+            //   alert("가입실패");
           }
       })
       .catch((err) =>{
