@@ -24,7 +24,7 @@ const id = document.querySelector("#id"),
     }).then((res) => res.json())
       .then((res) => {
           if(res.success) {
-              location.href="/login";
+              location.href="/";
           }else{
               alert(res.msg);
           }

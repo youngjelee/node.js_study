@@ -31,7 +31,8 @@ const id = document.querySelector("#id"),
     }).then((res) => res.json())
       .then((res) => {
           if(res.success) {
-              location.href="/";
+              console.log("123");
+              location.href="/abc";
           }else{
               alert(res.msg);
           }
